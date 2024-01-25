@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <script src="https://unpkg.com/htmx.org@1.9.10" integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC" crossorigin="anonymous"></script>
+        <script>
+            function makeAPICall() {
+                const url = 'https://openlibrary.org/books/OL7353617M';
+                fetch(url)
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById('result-div').innerHTML = JSON.stringify(data);
+                    })
+                    .catch(error => console.error('Error:', error));
+            }
+        </script>
+
+    </head>
+    <body>
+        <h1>Add a media</h1>
+        <button hx-get="https://openlibrary.org/books/OL7353617M.json" hx-target="#result-div" hx-swap="outerHTML" hx-trigger="click">Search</button>
+    <div id="result-div">
+        Search Result here....
+    </div>
+    <div>
+        <button>Add To My Read Page</button>
+    </div>
+    
+    </body>
+</html>
