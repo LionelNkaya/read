@@ -20,4 +20,11 @@
         </div>
     </div>
 </div>
+<div>
+    <h1>ISBN Lookup:</h1>
+    <br>
+    <input type='text' id="isbn-input" placeholder="ISBN #">
+    <button hx-get="https://openlibrary.org/books/OL7353617M.json" hx-target="#result-div" hx-swap="outerHTML">Search</button>
+    <div id="result-div"></div>
+</div>
 @endsection
